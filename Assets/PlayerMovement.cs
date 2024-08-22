@@ -6,13 +6,13 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private bool isAI;
     [SerializeField] private int speed;
-    private Rigidbody2D rb;
+    private Rigidbody2D paddle;
     private float direction_y;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        paddle = gameObject.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -25,12 +25,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isAI)
         {
-            rb.velocity = new Vector2(0, speed);
+            paddle.velocity = new Vector2(0, speed);
         }
         else
         {
             direction_y = Input.GetAxisRaw("Vertical");
-            rb.velocity = new Vector2(0, direction_y * speed);
+            paddle.velocity = new Vector2(0, direction_y * speed);
         }
     }
 }
