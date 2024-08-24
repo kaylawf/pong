@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool isAI;
     [SerializeField] private int speed;
     private Rigidbody2D paddle;
+    //private CircleCollider2D ball;
     private float direction_y;
 
     // Start is called before the first frame update
