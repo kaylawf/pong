@@ -37,7 +37,17 @@ public class PlayerMovement : MonoBehaviour
 
         if (ballPosition.y > paddlePosition.y)
         {
-            paddle.velocity = new Vector2(0, speed/4);
+            paddle.velocity = new Vector2(0, speed);
+        }
+
+        else if (ballPosition.y < paddlePosition.y)
+        {
+            paddle.velocity = new Vector2(0, -speed);
+        }
+
+        else
+        {
+            paddle.velocity = new Vector2(0, 0);
         }
     }
 }

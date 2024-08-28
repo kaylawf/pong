@@ -1275,6 +1275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BallSoundEffect: {fileID: 8300000, guid: 70f403c5057c94d7cabfde17dec21f55, type: 3}
   audioSource: {fileID: 647706001}
+  playerPaddle: {fileID: 653862503}
+  AIPaddle: {fileID: 387364211}
 --- !u!1 &1682236872
 GameObject:
   m_ObjectHideFlags: 0

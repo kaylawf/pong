@@ -6,6 +6,9 @@ public class BallMovement : MonoBehaviour
 {
     [SerializeField] AudioClip BallSoundEffect;
     [SerializeField] AudioSource audioSource;
+    //[SerializeField] private Transform ballPos;
+    [SerializeField] private Transform playerPaddle;
+    [SerializeField] private Transform AIPaddle;
     private Rigidbody2D ball;
     //private CircleCollider2D ball;
     private int speed = 5;
@@ -25,12 +28,38 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Vector2 ballPosition = transform.position;
+        ////Vector2 AIPosition = AIPaddle.position;
+        //Vector2 playerPosition = playerPaddle.position;
+
+        //while (ball.velocity.x == 0)
+        //{
+        //    if (ballPosition.y == playerPosition.y)
+        //    {
+        //        ball.velocity = new Vector2(speed, 0.1f);
+
+        //    }
+        //}
+
         //ball.velocity = new Vector2(speed, speed);
         //ball.transform(1f, 1f);
     }
 
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    audioSource.PlayOneShot(BallSoundEffect);
+    //}
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        audioSource.PlayOneShot(BallSoundEffect);
+        Vector2 ballPosition = transform.position;
+        //Vector2 AIPosition = AIPaddle.position;
+        Vector2 playerPosition = playerPaddle.position;
+
+        if (ballPosition.y == playerPosition.y)
+        {
+            ball.velocity = new Vector2(speed, 0.5f);
+
+        }
     }
 }
