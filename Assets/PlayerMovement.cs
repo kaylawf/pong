@@ -6,8 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private bool isAI;
     [SerializeField] private int speed;
+    [SerializeField] private Transform ball;
     private Rigidbody2D paddle;
-    //private CircleCollider2D ball;
     private float direction_y;
 
     // Start is called before the first frame update
@@ -19,19 +19,25 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    private void FixedUpdate()
-    {
         if (isAI)
         {
-            paddle.velocity = new Vector2(0, speed);
+            AImovement();
         }
         else
         {
             direction_y = Input.GetAxisRaw("Vertical");
             paddle.velocity = new Vector2(0, direction_y * speed);
+        }
+    }
+
+    private void AImovement()
+    {
+        Vector2 paddlePosition = transform.position;
+        Vector2 ballPosition = ball.position;
+
+        if (ballPosition.y > paddlePosition.y)
+        {
+            paddle.velocity = new Vector2(0, speed/2);
         }
     }
 }

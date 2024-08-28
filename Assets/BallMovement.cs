@@ -15,6 +15,7 @@ public class BallMovement : MonoBehaviour
     {
         ball = gameObject.GetComponent<Rigidbody2D>();
         //ball = gameObject.GetComponent<CircleCollider2D>();
+        ball.velocity = new Vector2(-speed, 0);
         if (audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
@@ -24,9 +25,10 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ball.velocity = new Vector2(speed, speed);
+        //ball.velocity = new Vector2(speed, speed);
         //ball.transform(1f, 1f);
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         audioSource.PlayOneShot(BallSoundEffect);
